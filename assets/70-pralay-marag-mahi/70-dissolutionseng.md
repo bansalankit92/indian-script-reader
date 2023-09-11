@@ -86,18 +86,19 @@ Printed at : Mukul Graphic, Jalandhar. Ph. 98142-
 4 Sahib Bandgi
 
 The Search
+```
 Jehi Khojat Kalpo Bhaye, Ghathi Mahin So Moor.
 Badi Garab Guman Te, Ta Te Pari Gayo Dhoor.
-He whose search we make in external world, resides
-within us.
-We can attain God by the grace of Satguru alone. The
-path the worldly people have chosen for attaining salvation;
-is related to Munn-Mind. Some are making a search of Lord
-in the forests; some through austerities; some through the
-practice of yoga while others are doing so by pilgrimages.
+```
+He whose search we make in external world, resides within us.
+We can attain God by the grace of Satguru alone. The path the worldly people have chosen for attaining salvation; is related to Munn-Mind. Some are making a search of Lord in the forests; some through austerities; some through the practice of yoga while others are doing so by pilgrimages.
 Sahib Kabir cautions us—
+
+```
 Kasturi Kundal Basey, Mrig Khoje Bann Mahin.
 Aise Ghat Ghat Saiyan, Moorakh Janat Nahin.
+```
+
 The musk deer has musk in its navel region but, out of
 ignorance, it makes a search for it in the forest. Likewise,
 Sahib is present within every man, though the ignorant persons
