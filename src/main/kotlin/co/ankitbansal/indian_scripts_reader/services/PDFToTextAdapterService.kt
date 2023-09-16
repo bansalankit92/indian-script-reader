@@ -110,7 +110,13 @@ class PDFToTextAdapterService {
             val pdfRenderer = PDFRenderer(document)
             var i = 0
             var fileTextData = StringBuilder()
-            for (page in 0 until document.numberOfPages) {
+            var start = 0
+            var end = document.numberOfPages
+            if(!all){
+                start = pageStart
+                end = pageEnd
+            }
+            for (page in start until end) {
                 val bim = pdfRenderer.renderImageWithDPI(page, 400F, ImageType.RGB)
                 val tesseract = Tesseract()
                 tesseract.setDatapath("src/main/resources/tessdata")
@@ -146,16 +152,7 @@ class PDFToTextAdapterService {
 //                }
 //                println(newArr.size)
                 text = newArr.joinToString("\n")
-                if (all) {
-                    fileTextData.append(text)
-                } else {
-//                    println(i in pageStart..pageEnd)
-                    if (i in pageStart..pageEnd) {
-                        fileTextData.append(text)
-                    } else if (i > pageEnd) {
-                        break
-                    }
-                }
+                fileTextData.append(text)
                 i += 1
             }
 
