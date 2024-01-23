@@ -1,0 +1,39 @@
+curl --location 'http://localhost:8080/api/v1/pdf-to-text/hin/get-local' \
+--header 'Content-Type: application/json' \
+--data '{
+     "all": false,
+    "url": "E:\\Kabir mansoor\\kabir_manshoor_text.pdf",
+  "title": "bin-satguru-bache-nahi-hin",
+  "ignoreText": ["साहिब बन्दगी","बिन सतगुरु बाँचे नहीं कोटिन करे उपाय"],
+  "pageStart":52,
+  "pageEnd":54
+
+
+}'
+
+
+
+curl --location 'http://localhost:8080/api/v1/pdf-to-text/hin/save-local' \
+--header 'Content-Type: application/json' \
+--data '{
+  "url": "https://drive.google.com/uc?export=download&id=12hfAG03vBOiRtNmxkMuEX-He4ZYADiAA",
+  "title": "70-pralay-marag-mahi-hin",
+  "ignoreText": ["साहिब बन्दगी","70 प्रलय मारग माहीं"],
+  "pageStart":0,
+  "pageEnd": 2,
+  "all": true
+}'
+
+
+curl --location 'http://localhost:8080/api/v1/pdf-to-text/hin' \
+--header 'Content-Type: application/json' \
+--data '{
+     "all": false,
+    "url": "https://drive.google.com/uc?export=download&id=12hfAG03vBOiRtNmxkMuEX-He4ZYADiAA",
+  "title": "70-pralay-marag-mahi-hin",
+  "ignoreText": ["साहिब बन्दगी","70 प्रलय मारग माहीं"],
+  "pageStart":6,
+  "pageEnd":8
+
+
+}'

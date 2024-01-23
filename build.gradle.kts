@@ -39,6 +39,12 @@ dependencies {
     implementation("com.ibm.icu:icu4j:73.1")
 // https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j
     implementation("net.sourceforge.tess4j:tess4j:5.8.0")
+// https://mvnrepository.com/artifact/com.github.jai-imageio/jai-imageio-core
+    implementation("com.github.jai-imageio:jai-imageio-core:1.4.0")
+// https://mvnrepository.com/artifact/com.github.jai-imageio/jai-imageio-jpeg2000
+    implementation("com.github.jai-imageio:jai-imageio-jpeg2000:1.4.0")
+// https://mvnrepository.com/artifact/org.apache.pdfbox/jbig2-imageio
+    implementation("org.apache.pdfbox:jbig2-imageio:3.0.4")
 
 
 }

@@ -64,7 +64,7 @@ class PDFToTextAdapterService {
     ) {
         val website = URL(body.url)
         val pdfFile = "$localPath\\${body.title}.pdf"
-        downloadFile(website,pdfFile)
+        downloadFile(website, pdfFile)
         val text = getText(
             inputStream = FileInputStream(pdfFile),
             all = body.all,
@@ -72,7 +72,8 @@ class PDFToTextAdapterService {
             pageStart = body.pageStart,
             ignoreText = body.ignoreText,
         )
-        val fullText = StringBuilder("[//]: #("+body.url+")\n#"+body.title+"\n${body.ignoreText.joinToString(" ")}\n"+text)
+        val fullText =
+            StringBuilder("[//]: #(" + body.url + ")\n#" + body.title + "\n${body.ignoreText.joinToString(" ")}\n" + text)
         val path: Path =
             Paths.get("$localPath\\${body.title}.md")
         Files.write(path, fullText.toString().toByteArray(StandardCharsets.UTF_16))
@@ -90,10 +91,29 @@ class PDFToTextAdapterService {
             pageStart = body.pageStart,
             ignoreText = body.ignoreText,
         )
-        val fullText = StringBuilder("[//]: #("+body.url+")\n#"+body.title+"\n${body.ignoreText.joinToString(" ")}\n"+text)
+        val fullText =
+            StringBuilder("[//]: #(" + body.url + ")\n#" + body.title + "\n${body.ignoreText.joinToString(" ")}\n" + text)
         val path: Path =
             Paths.get("$localPath\\${body.title}.txt")
         Files.write(path, fullText.toString().toByteArray(StandardCharsets.UTF_16))
+    }
+
+    fun getFromLocalPath(
+        path: String,
+        all: Boolean = true,
+        pageStart: Int = 0,
+        pageEnd: Int = 200,
+        ignoreText: List<String> = listOf(),
+        lang: String = "hin"
+    ): String {
+        val inputStream: InputStream = FileInputStream(path)
+        return getText(
+            inputStream = inputStream,
+            all = all,
+            pageEnd = pageEnd,
+            pageStart = pageStart,
+            ignoreText = ignoreText,
+        )
     }
 
     // hin+eng
@@ -112,7 +132,7 @@ class PDFToTextAdapterService {
             var fileTextData = StringBuilder()
             var start = 0
             var end = document.numberOfPages
-            if(!all){
+            if (!all) {
                 start = pageStart
                 end = pageEnd
             }
@@ -124,9 +144,9 @@ class PDFToTextAdapterService {
                 var text = tesseract.doOCR(bim)
                 var splitTextArr = text.split('\n')
                 var isIgnore = false
-                for (k in ignoreText){
-                    if(splitTextArr[0].contains(k)){
-                        isIgnore =true
+                for (k in ignoreText) {
+                    if (splitTextArr[0].contains(k)) {
+                        isIgnore = true
                     }
                 }
 //                val ignoredTexts = ignoreText.filter { it in splitTextArr[0] }
@@ -134,9 +154,23 @@ class PDFToTextAdapterService {
 //                println("${ignoredTexts.size} ${String(splitTextArr[0].toByteArray(StandardCharsets.UTF_16),StandardCharsets.UTF_16)} $ignoredTexts")
                 if (isIgnore) {
                     splitTextArr = splitTextArr.drop(1)// .joinToString("\n")
-                    println("count $i ${String(splitTextArr[0].toByteArray(StandardCharsets.UTF_16),StandardCharsets.UTF_16)} deleted")
+                    println(
+                        "count $i ${
+                            String(
+                                splitTextArr[0].toByteArray(StandardCharsets.UTF_16),
+                                StandardCharsets.UTF_16
+                            )
+                        } deleted"
+                    )
                 } else {
-                    println("count $i ${String(splitTextArr[0].toByteArray(StandardCharsets.UTF_16),StandardCharsets.UTF_16)} not")
+                    println(
+                        "count $i ${
+                            String(
+                                splitTextArr[0].toByteArray(StandardCharsets.UTF_16),
+                                StandardCharsets.UTF_16
+                            )
+                        } not"
+                    )
                 }
 
                 var newArr: List<String> = splitTextArr //mutableListOf()
